@@ -8,18 +8,21 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden; /* Prevent scrollbars due to large background image */
 }
 
 .registrationbox {
     width: 90%;
-    max-width: 400px;
+    max-width: 480px;
+    height: auto; /* Adjust height based on content */
     background: rgba(0, 0, 0, 0.8);
     color: aliceblue;
     border-radius: 30px;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
     text-align: center;
     position: relative;
+    margin-top: 20px; /* Added margin for better spacing */
 }
 
 .avatar {
@@ -27,7 +30,7 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-    top: -50px;
+    top: -30px;
     left: calc(50% - 50px);
 }
 
@@ -82,13 +85,35 @@ h1 {
 }
 
 /* Responsive styles */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     .registrationbox {
         padding: 20px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .registrationbox input[type="submit"] {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .registrationbox {
+        padding: 15px;
+        margin-top: 5px;
     }
 
     h1 {
         font-size: 20px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        top: -20px;
     }
 
     .registrationbox input[type="submit"] {
