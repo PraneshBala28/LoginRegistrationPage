@@ -16,9 +16,46 @@
             <p>Password</p>
             <input type="password" placeholder="Enter password">
             <input type="submit" value="Login"><br>
-            <a href="#">Forgot password?</a><br>
+            <a href="#" onclick="showForgotPassword()">Forgot password?</a><br>
             <a href="registration.html">Don't have an account?</a>
         </form>
     </div>
+
+    <!-- Custom Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script>
+        let lastMessageIndex = null;
+
+        function showForgotPassword() {
+            const messages = [
+                "Think hard... It's in there somewhere!",
+                "Don't worry, it's probably on a sticky note somewhere!",
+                "Did you check under your keyboard?",
+                "Password amnesia? Time for a brain reboot!",
+                "Hint: It's probably your pet's name or '123456'!",
+                "Keep calm and try 'password'... just kidding!"
+            ];
+
+            let newMessageIndex;
+
+            do {
+                newMessageIndex = Math.floor(Math.random() * messages.length);
+            } while (newMessageIndex === lastMessageIndex);
+
+            lastMessageIndex = newMessageIndex;
+            document.getElementById('modal-message').innerText = messages[newMessageIndex];
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
